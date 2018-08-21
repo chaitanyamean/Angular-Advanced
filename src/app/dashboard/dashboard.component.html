@@ -1,0 +1,21 @@
+<!-- <nav class="navbar navbar-light bg-dark">
+    <a class="navbar-brand">Navbar</a>
+  </nav> -->
+  
+  <app-loader *ngIf="isLoading"></app-loader>
+
+
+<div class="card-group container" *ngIf="finalList && !isLoading">
+  <div class="row">
+      <div class="col-md-6" *ngFor='let item of finalList'>
+     <div class="card cclass">
+      <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
+    
+      <div class="card-body">
+        <h5 class="card-title">{{item.region}}</h5>
+        <button class="btn-primary" (click)="region(item.region)">View Countries</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

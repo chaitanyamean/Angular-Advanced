@@ -1,0 +1,36 @@
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    width: 250px;
+    cursor: pointer;
+}
+
+.scrollable-menu>li:hover {
+    background: green;
+    color: white;
+}
+
+.cclass {
+    margin-top: 10px;
+}
+
+.icls> img {
+    height: 200px;
+}
+
+.vcls {
+    text-align: center;
+}
+
+
+.curclass > a{
+    color: red;
+    cursor: pointer;
+}
+
+.primaryButton {
+    background-color: black;
+    color: white;
+
+}

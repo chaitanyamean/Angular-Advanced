@@ -1,0 +1,73 @@
+
+<div class="container mt-4" *ngIf="!isLoading">
+  <button class="btn-primary" (click)="goBack()">Go Back</button>
+</div>
+
+
+<app-loader *ngIf="isLoading"></app-loader>
+
+
+<div class="container" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="btn-group mt-4" *ngIf="currencyList">
+        <button type="button" class="btn btn-default dropdown-toggle primaryButton" data-toggle="dropdown">
+          {{currencyName}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu scrollable-menu" role="menu">
+          <li  *ngFor="let item of currencyList" (click)="currency(item)"><a>{{item.name | uppercase }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div class="btn-group mt-4" *ngIf="langList">
+            <button type="button" class="btn btn-default dropdown-toggle primaryButton" data-toggle="dropdown">
+              {{langName}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu scrollable-menu" role="menu">
+              <li  *ngFor="let item of langList" (click)="language(item)"><a>{{item.name | uppercase }}</a></li>
+            </ul>
+          </div>
+    </div>
+    <div class="col-md-4">
+        <div class="btn-group mt-4" *ngIf="regionList">
+            <button type="button" class="btn btn-default dropdown-toggle primaryButton" data-toggle="dropdown">
+              {{regionName}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu scrollable-menu" role="menu">
+              <li  *ngFor="let item of regionList" (click)="region(item)"><a>{{item | uppercase }}</a></li>
+            </ul>
+          </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container" *ngIf="response">
+  <div class="row">
+    <div class="col-md-4 cclass" *ngFor="let item of response">
+      <div class="card icls">
+        <img class="card-img-top" src="{{item.flag}}" alt="Card image cap">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Name: {{item.name}}</li>
+          <li class="list-group-item">Capital: {{item.capital}}</li>
+          <li class="list-group-item">Sub Regions: {{item.subregion}}</li>
+        </ul>
+        <div class="card-body curclass">
+            Currency:
+          <a  class="card-link" *ngFor="let i of item.currencies" (click)="currency(i)"> <u>{{i.name}}</u></a>
+        </div>
+        <div class="card-body curclass">
+          Language:
+        <a  class="card-link" *ngFor="let i of item.languages" (click)="language(i)"> <u>{{i.name}}</u></a>
+      </div>
+            <ul class="list-group list-group-flush">
+          <li class="list-group-item vcls">
+            <button class="btn-primary" (click)="view(item.name)">View Details</button>
+          </li>
+          </ul>       
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<app-country-list  *ngIf="!isLoading" [response]="response" (viewDetails)="view($event)" (currencyDetails)="currency($event)" (languageDetails)="language($event)"></app-country-list>

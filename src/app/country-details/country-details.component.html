@@ -1,0 +1,120 @@
+
+<div class="container mt-4" *ngIf="!isLoading">
+  <button class="btn-primary" (click)="goBack()">Go Back</button>
+</div>
+
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div *ngIf="response && isEnabled && !isLoading">
+
+  <div class="container mt-3" *ngFor="let item of response">
+
+    <div class="card mb-3 flag">
+      <img class="card-img-top" src="{{item.flag}}" alt="Card image cap">
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Country Name: {{item.name}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Alpha2Code: {{item.alpha2Code}}</li>
+            <li class="list-group-item">Alpha3Code: {{item.alpha3Code}}</li>
+            <li class="list-group-item">Area: {{item.area}}</li>
+            <li class="list-group-item">Capital: {{item.capital}}</li>
+            <li class="list-group-item">Cioc: {{item.cioc}}</li>
+            <li class="list-group-item">Demonym: {{item.demonym}}</li>
+            <li class="list-group-item">Gini: {{item.gini}}</li>
+            <li class="list-group-item">NativeName: {{item.nativeName}}</li>
+            <li class="list-group-item">NumericCode: {{item.numericCode}}</li>
+            <li class="list-group-item">Population: {{item.population}}</li>
+            <li class="list-group-item">Region: {{item.region}}</li>
+            <li class="list-group-item">Subregion: {{item.subregion}}</li>
+          </ul>
+        </div>
+        <div class="card data-class" *ngIf="item?.latlng">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <p>Latitude: {{item.latlng[0]}}</p>
+              <p>Longitude: {{item.latlng[1]}}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card data-class" *ngIf="item?.callingCodes">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <h5>
+                Calling Codes:
+              </h5>
+              <p *ngFor="let item of item.callingCodes">{{item}}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card data-class" *ngIf="item?.altSpellings">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <h5>
+                Alt Spellings:
+              </h5>
+              <p *ngFor="let item of item.altSpellings">{{item}}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card data-class" *ngIf="item?.regionalBlocs">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <h5>
+                Regional Blocks:
+              </h5>
+              <p *ngFor="let item of item.regionalBlocs">{{item.name}}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card data-class" *ngIf="item?.timezones">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <h5>
+                Time Zone:
+              </h5>
+              <p *ngFor="let item of item.timezones">{{item}}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card data-class" *ngIf="item?.topLevelDomain">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <h5>
+                Top Level Domain:
+              </h5>
+              <p *ngFor="let item of item.topLevelDomain">{{item}}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card data-class" *ngIf="item?.languages">
+          <h5>Langauges:</h5>
+                <ol class="curclass">
+              <li *ngFor="let item of item.languages" (click)="langauge(item)">{{item.name}}</li>
+            </ol>
+        </div>
+
+        <div class="card data-class mb-4" *ngIf="item?.currencies">
+          <h5>Currencies:</h5>
+                <ol class="curclass">
+              <li *ngFor="let item of item.currencies" (click)="currency(item)">{{item.name}}</li>
+            </ol>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isEnabled && !isLoading">
+<app-country-list [response]="langResponse"  (viewDetails)="view($event)" (currencyDetails)="currency($event)" (languageDetails)="langauge($event)"></app-country-list>
+</div>

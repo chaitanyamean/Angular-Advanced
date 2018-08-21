@@ -1,0 +1,13 @@
+.data-class {
+    margin-top: 2%; 
+}
+
+.curclass > li{
+    color: red;
+    cursor: pointer;
+}
+
+.curclass > li:hover{
+    color: blue;
+    text-decoration: underline;
+}

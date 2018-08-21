@@ -1,0 +1,27 @@
+<div class="container" *ngIf="response">
+    <div class="row">
+      <div class="col-md-4 cclass" *ngFor="let item of response">
+        <div class="card icls">
+          <img class="card-img-top" src="{{item.flag}}" alt="Card image cap">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name: {{item.name}}</li>
+            <li class="list-group-item">Capital: {{item.capital}}</li>
+            <li class="list-group-item">Sub Regions: {{item.subregion}}</li>
+          </ul>
+          <div class="card-body curclass">
+              Currency:
+            <a  class="card-link" *ngFor="let i of item.currencies" (click)="currency(i)"> <u>{{i.name}}</u></a>
+          </div>
+          <div class="card-body curclass">
+            Language:
+          <a  class="card-link" *ngFor="let i of item.languages" (click)="language(i)"> <u>{{i.name}}</u></a>
+        </div>
+              <ul class="list-group list-group-flush">
+            <li class="list-group-item vcls">
+              <button class="btn-primary" (click)="view(item.name)">View Details</button>
+            </li>
+            </ul>       
+        </div>
+      </div>
+    </div>
+  </div>

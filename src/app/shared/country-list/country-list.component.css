@@ -1,0 +1,23 @@
+.cclass {
+    margin-top: 10px;
+}
+
+.icls> img {
+    height: 200px;
+}
+
+.vcls {
+    text-align: center;
+}
+
+
+.curclass > a{
+    color: red;
+    cursor: pointer;
+}
+
+.primaryButton {
+    background-color: black;
+    color: white;
+
+}
