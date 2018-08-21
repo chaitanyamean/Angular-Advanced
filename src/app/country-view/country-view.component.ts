@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppserviceService } from '../appservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import {Region} from './region';
 
 @Component({
   selector: 'app-country-view',
@@ -43,7 +44,10 @@ export class CountryViewComponent implements OnInit {
   getRegion(item) {
     this.isLoading = true;
     this.regionName = item;
-    this.service.getRegion(item).subscribe(res => {
+    let region: Region = {
+      region: item
+    }
+    this.service.getRegion(region.region).subscribe(res => {
       this.response = res;
     this.isLoading = false;
     });
