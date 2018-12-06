@@ -1,6 +1,10 @@
 # Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+Project is on Display the Countries, Regions and currencies using API's,
+Applying filters for Currency and Language Filters
+Problem Statment: https://s3-ap-southeast-1.amazonaws.com/edwisor-india-bucket/assignments/web03/Web03s4l3.pdf
+Link: https://chaitanyamean.github.io/
 
 ## Development server
 
